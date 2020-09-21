@@ -8,17 +8,24 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>JavaScript Quiz</title>
   </head>
   <body>
-
-    <nav class="navbar navbar-light bg-light">
+    <header>
+      <nav class="navbar navbar-light bg-light">
         <span class="navbar-brand mb-0 h1">Code Quiz</span>
+        <div>Time Left <span id="time">01:00</span> minutes!</div>
       </nav>
+    </header>
+      
+    <div class="container">
 
-      <div class="container">
+      <div id="quiz"> </div>  
+      <button id="answers" type="button" class="btn btn-primary btn-lg"> START!</button>
+      <ul id="answ"></ul>
         <!-- Content here -->
-      </div>
+    </div>
+   
 
     <!-- Optional JavaScript -->
     <script src="script.js"></script>

@@ -1,4 +1,4 @@
-// timer
+// timer starts after clicking the button with the #answers id
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     setInterval(function () {
@@ -23,6 +23,7 @@ document.querySelector('#answers').addEventListener('click',function()
     startTimer(totalMinutes, display);
 });
 
+//set a variable with the number of corrects answers
 var correct = 0;
 
 // this is a multidimensional array with 4 inner array elements with 6 elements inside them
@@ -70,18 +71,25 @@ var questions = [
     ];  
 
     var getQuiz = document.getElementById("quiz");
-    var answ = document.getElementById("#answ")
+    var answ = document.getElementById("answ")
 //   console.log(questions);
 
 renderQuestions();
 
-function renderQuestions() {
+console.log(questions);
 
+function renderQuestions() {
+    // var newQuestions0 = JSON.stringify(questions);
+    // console.log(newQuestions0);
+  
+    var newQuestion1 = Object.entries(questions)
+    var newQuestion2 = document.createTextNode(newQuestion1);
+ getQuiz.appendChild(newQuestion2);
   // Render a new li for each todo
-  for (var i = 0; i < questions.length; i++) {
-    var qst = (questions[i]);
-  var val =  Object.values(questions);
-  console.log(val)
+//   for (var i = 0; i < questions.length; i++) {
+//     var qst = (questions[i]);
+//   var val =  Object.values(questions);
+//   console.log(val)
     // var questionsRendered = JSON.parse(qst);
    
     // var p = document.createElement("p");
@@ -89,4 +97,4 @@ function renderQuestions() {
     // console.log(p);
     // answ.appendChild(p);
   }
-}
+// }

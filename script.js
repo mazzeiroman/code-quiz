@@ -16,12 +16,17 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-document.querySelector('#answers').addEventListener('click',function()
+ var startButton = document.querySelector('#startButton');
+ startButton.addEventListener('click',function()
      {
     var totalMinutes = 60 * 1,
         display = document.querySelector('#time');
     startTimer(totalMinutes, display);
 });
+
+  startButton.addEventListener('click', function(){
+   startButton.style.display="none";
+  });
 
 //set a variable with the number of corrects answers
 var correct = 0;

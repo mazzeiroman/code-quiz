@@ -1,3 +1,20 @@
+//set a variable with the number of corrects answers
+var correct = 0;
+// increment the question 
+var currentQuestionNum = 0;
+
+var usersChoice= "";
+var getQuiz = document.getElementById("quiz");
+var answ = document.getElementById("answ");
+//   console.log(questions);
+
+var questionPrompt = document.getElementById('questionPrompt');
+var choiceA = document.getElementById('choiceA');
+var choiceB = document.getElementById('choiceB');
+var choiceC = document.getElementById('choiceC');
+var choiceD = document.getElementById('choiceD');
+var buttons = document.getElementsByClassName('button');
+
 // timer starts after clicking the button with the #answers id
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
@@ -15,7 +32,7 @@ function startTimer(duration, display) {
         }
     }, 1000);
 }
-
+//starts clock countdown
  var startButton = document.querySelector('#startButton');
  startButton.addEventListener('click',function()
      {
@@ -24,82 +41,65 @@ function startTimer(duration, display) {
     startTimer(totalMinutes, display);
 });
 
+//Makes start button disapear after clicking on it
   startButton.addEventListener('click', function(){
    startButton.style.display="none";
+   renderQuestions();
   });
 
-//set a variable with the number of corrects answers
-var correct = 0;
 
 // this is a multidimensional array with 4 inner array elements with 6 elements inside them
 var questions = [
     {
         question: "Which of the following type of variable takes precedence over other if names are same?",
-        a: "global variable",
-        b: "local variable",
-        c: "Both of the above",
-        d: "None of the above",
-        answer: "B"
+        choices : ["global variable","local variable","Both of the above","None of the above"],
+        answer: "local variable"
       },
     {
         question: "Which of the following function of Boolean object returns the primitive value of the Boolean object?",
-        a: "toSource()",
-        b: "valueOf()",
-        c: "toString()",
-        d: "None of the above",
-        answer: "B"
+        choices: ["toSource()","valueOf()","toString()","None of the above"],
+        answer: "valueOf()"
       },
     {
         question: "Which of the following function of String object returns the characters in a string between two indexes into the string?",
-        a: "slice()",
-        b: "split()",
-        c: "substr()",
-        d: "substring()",
-        answer: "D"
+        choices: ["slice()","split()","substr()","substring()"],
+        answer: "substring()"
       },
     {
         question: "Which of the following function of String object creates a string to blink as if it were in a <blink> tag?",
-        a: "anchor()",
-        b: "big()",
-        c: "blink()",
-        d: "italics()",
-        answer: "C"
+        choices:["anchor()","big()","blink()","italics()"],
+        answer: "blink()"
       },
     {
         question: "Which of the following function of String object causes a string to be displayed in the specified size as if it were in a <font size = 'size'> tag?",
-        a: "fixed()",
-        b: "fontcolor()",
-        c: "fontsize()",
-        d: "bold()",
-        answer: "C"
+        choices:["fixed()","fontcolor()","fontsize()","bold()"],
+        answer: "fontsize()"
       }
     ];  
 
-    var getQuiz = document.getElementById("quiz");
-    var answ = document.getElementById("answ")
-//   console.log(questions);
+// renderQuestions();
 
-renderQuestions();
-
-console.log(questions);
+// console.log(questions);
 
 function renderQuestions() {
-    // var newQuestions0 = JSON.stringify(questions);
-    // console.log(newQuestions0);
-  
-    var newQuestion1 = Object.entries(questions)
-    var newQuestion2 = document.createTextNode(newQuestion1);
- getQuiz.appendChild(newQuestion2);
-  // Render a new li for each todo
-//   for (var i = 0; i < questions.length; i++) {
-//     var qst = (questions[i]);
-//   var val =  Object.values(questions);
-//   console.log(val)
-    // var questionsRendered = JSON.parse(qst);
+    
+    console.log(questions[currentQuestionNum].question);
+    for (var i=0; i<questions.length; i++){
+
+        console.log(questions[currentQuestionNum].choices[i]);
+
+       var qstp= questionPrompt.innerHTML = questions[currentQuestionNum].question;
+       var chA= choiceA.innerHTML =questions[currentQuestionNum].choices[0];
+       var chB= choiceB.innerHTML =questions[currentQuestionNum].choices[1];
+       var chC= choiceC.innerHTML =questions[currentQuestionNum].choices[2];
+       var chD= choiceD.innerHTML =questions[currentQuestionNum].choices[3];
+       
+       currentQuestionNum +=1;
+       
+
+
+        
+    }
+
    
-    // var p = document.createElement("p");
-    // p.innerText = qst[i];
-    // console.log(p);
-    // answ.appendChild(p);
-  }
-// }
+}

@@ -13,7 +13,7 @@ var choiceA = document.getElementById('choiceA');
 var choiceB = document.getElementById('choiceB');
 var choiceC = document.getElementById('choiceC');
 var choiceD = document.getElementById('choiceD');
-var buttons = document.getElementsByClassName('button');
+var buttons = document.querySelectorAll('.button');
 
 // timer starts after clicking the button with the #answers id
 function startTimer(duration, display) {
@@ -84,9 +84,9 @@ var questions = [
 function renderQuestions() {
     
     console.log(questions[currentQuestionNum].question);
-    for (var i=0; i<questions.length; i++){
+    // for (var i=0; i<questions.length; i++){
 
-        console.log(questions[currentQuestionNum].choices[i]);
+        // console.log(questions[currentQuestionNum].choices[i]);
 
        var qstp= questionPrompt.innerHTML = questions[currentQuestionNum].question;
        var chA= choiceA.innerHTML =questions[currentQuestionNum].choices[0];
@@ -94,12 +94,26 @@ function renderQuestions() {
        var chC= choiceC.innerHTML =questions[currentQuestionNum].choices[2];
        var chD= choiceD.innerHTML =questions[currentQuestionNum].choices[3];
        
+       buttons.forEach(item => {
+        item.addEventListener('click', function(){
        currentQuestionNum +=1;
+       var qstp= questionPrompt.innerHTML = questions[currentQuestionNum].question;
+       var chA= choiceA.innerHTML =questions[currentQuestionNum].choices[0];
+       var chB= choiceB.innerHTML =questions[currentQuestionNum].choices[1];
+       var chC= choiceC.innerHTML =questions[currentQuestionNum].choices[2];
+       var chD= choiceD.innerHTML =questions[currentQuestionNum].choices[3];
+
+       if (currentQuestionNum === 0 && chB === true) {
+           correct+=1
+           console.log(correct);
+        //    chB.onclick= function(answ) {answ.innerHTML='YOU ARE RIGHT!'};
+        };
+    });
+    });
        
 
-
         
-    }
+    // }
 
    
 }

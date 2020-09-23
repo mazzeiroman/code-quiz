@@ -96,6 +96,7 @@ function renderQuestions() {
        
        buttons.forEach(item => {
         item.addEventListener('click', function(){
+            console.log(item.textContent);
        currentQuestionNum +=1;
        var qstp= questionPrompt.innerHTML = questions[currentQuestionNum].question;
        var chA= choiceA.innerHTML =questions[currentQuestionNum].choices[0];
@@ -103,11 +104,26 @@ function renderQuestions() {
        var chC= choiceC.innerHTML =questions[currentQuestionNum].choices[2];
        var chD= choiceD.innerHTML =questions[currentQuestionNum].choices[3];
 
-       if (currentQuestionNum === 0 && chB === true) {
+       if (currentQuestionNum === 0 && item.textContent == questions[currentQuestionNum].answer) {
            correct+=1
-           console.log(correct);
+           console.log(correct)
+       }
         //    chB.onclick= function(answ) {answ.innerHTML='YOU ARE RIGHT!'};
-        };
+        else if (currentQuestionNum === 1 && item.textContent == questions[currentQuestionNum].answer) {
+            correct+=1
+            console.log(correct);
+        }
+        else if (currentQuestionNum === 2 && item.textContent == questions[currentQuestionNum].answer) {
+            correct+=1
+            console.log(correct);
+        }
+        else if ((currentQuestionNum === 3 && item.textContent === questions[currentQuestionNum].answer)) {
+            correct+=1
+            console.log(correct);
+            }
+        else if (currentQuestionNum === 4 && item.textContent === questions[currentQuestionNum].answer) {
+                correct+=1
+                console.log(correct)} 
     });
     });
        

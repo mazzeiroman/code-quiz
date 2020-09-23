@@ -15,35 +15,49 @@ var choiceC = document.getElementById('choiceC');
 var choiceD = document.getElementById('choiceD');
 var buttons = document.querySelectorAll('.button');
 
-// timer starts after clicking the button with the #answers id
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-}
+var timeleft = 60;
 //starts clock countdown
  var startButton = document.querySelector('#startButton');
  startButton.addEventListener('click',function()
      {
-    var totalMinutes = 60 * 1,
-        display = document.querySelector('#time');
-    // if (itemContent!= answerContent) {totalMinutes = (60*1)-10  }
-    startTimer(totalMinutes, display);
+    var downloadTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("time").textContent = timeleft;
+    if(timeleft <= 0)
+        clearInterval(downloadTimer);
+    },1000);
+});
+
+
+// timer starts after clicking the button with the #answers id
+// function startTimer(duration, display) {
+//     var timer = duration, minutes, seconds;
+//     setInterval(function () {
+//         minutes = parseInt(timer / 60, 10);
+//         seconds = parseInt(timer % 60, 10);
+
+//         minutes = minutes < 10 ? "0" + minutes : minutes;
+//         seconds = seconds < 10 ? "0" + seconds : seconds;
+
+//         display.textContent = minutes + ":" + seconds;
+
+//         if (--timer < 0) {
+//             timer = duration;
+//         }
+//     }, 1000);
+// }
+// //starts clock countdown
+//  var startButton = document.querySelector('#startButton');
+//  startButton.addEventListener('click',function()
+//      {
+//     var totalMinutes = 60 * 1,
+//         display = document.querySelector('#time');
+//     // if (itemContent!= answerContent) {totalMinutes = (60*1)-10  }
+//     startTimer(totalMinutes, display);
 
 
     
-});
+// });
 
 //Makes start button disapear after clicking on it
   startButton.addEventListener('click', function(){
@@ -110,7 +124,8 @@ function renderQuestions() {
          if (itemContent=== answerContent) {
              correct+=1;
          }
-        //  else {totalMinutes= totalMinutes - 10};
+         else {timeleft -= 10;
+            document.getElementById("time").textContent = timeleft + " sec";};
          console.log(correct);
        currentQuestionNum +=1;
        var qstp= questionPrompt.innerHTML = questions[currentQuestionNum].question;
@@ -120,7 +135,7 @@ function renderQuestions() {
        var chD= choiceD.innerHTML =questions[currentQuestionNum].choices[3];
        
     });
-    });
+    // });
     // buttons.forEach(item => {
     //     item.addEventListener('click', function(){
 
@@ -145,4 +160,4 @@ function renderQuestions() {
     // });
 
    
-    
+        }); 

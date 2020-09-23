@@ -123,9 +123,31 @@ function renderQuestions() {
             var answerContent = questions[currentQuestionNum].answer;
          if (itemContent=== answerContent) {
              correct+=1;
+             // WORK ON PROMPTS FOR RIGHT 
+            //  var timel = 2;
+            //  var downloadT = setInterval(function(){
+            //     timel--;
+            //     answ.textContent = "YOU ARE RIGHT!", timel;
+            //     if(timel <= 0)
+            //         clearInterval(downloadT, answ.textContent="");
+            //     },1000);
+
+
+            //  answ.textContent = "YOU ARE RIGHT!";
          }
          else {timeleft -= 10;
             document.getElementById("time").textContent = timeleft + " sec";};
+             // WORK ON PROMPTS FOR WRONG 
+            // var timel = 2;
+            // var downloadT = setInterval(function(){
+            //    timel--;
+            //    answ.textContent = "Wrong!", timel;
+            //    if(timel <= 0)
+            //        clearInterval(downloadT, answ.textContent="");
+            //    },1000);
+
+
+            // answ.textContent = "Wrong!";
          console.log(correct);
        currentQuestionNum +=1;
        var qstp= questionPrompt.innerHTML = questions[currentQuestionNum].question;

@@ -38,6 +38,7 @@ function startTimer(duration, display) {
      {
     var totalMinutes = 60 * 1,
         display = document.querySelector('#time');
+    // if (itemContent!= answerContent) {totalMinutes = (60*1)-10  }
     startTimer(totalMinutes, display);
 
 
@@ -87,7 +88,7 @@ var questions = [
 function renderQuestions() {
     
     console.log(questions[currentQuestionNum].question);
-    // for (var i=0; i<questions.length; i++){
+    
 
         // console.log(questions[currentQuestionNum].choices[i]);
 
@@ -96,7 +97,8 @@ function renderQuestions() {
        var chB= choiceB.innerHTML =questions[currentQuestionNum].choices[1];
        var chC= choiceC.innerHTML =questions[currentQuestionNum].choices[2];
        var chD= choiceD.innerHTML =questions[currentQuestionNum].choices[3];
-       
+      
+};
        buttons.forEach(item => {
         item.addEventListener('click', function(){
 
@@ -119,11 +121,28 @@ function renderQuestions() {
        
     });
     });
-       
+    // buttons.forEach(item => {
+    //     item.addEventListener('click', function(){
 
-        
-    // }
+    // // evaluates the content of the button and compares it to the right answer
+    //         console.log(item.textContent);
+    //         console.log(questions[currentQuestionNum].answer)
+    //         var itemContent = item.textContent;
+    //         var answerContent = questions[currentQuestionNum].answer;
+    //      if (itemContent=== answerContent) {
+    //          correct+=1;
+    //      }
+    //     //  else {totalMinutes= totalMinutes - 10};
+    //      console.log(correct);
+    //    currentQuestionNum +=1;
+    //    var qstp= questionPrompt.innerHTML = questions[currentQuestionNum].question;
+    //    var chA= choiceA.innerHTML =questions[currentQuestionNum].choices[0];
+    //    var chB= choiceB.innerHTML =questions[currentQuestionNum].choices[1];
+    //    var chC= choiceC.innerHTML =questions[currentQuestionNum].choices[2];
+    //    var chD= choiceD.innerHTML =questions[currentQuestionNum].choices[3];
+       
+    // });
+    // });
 
    
-}
- 
+    

@@ -19,34 +19,47 @@
     </header>
       
     <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+
+        <div class="jumbotron">
+            <!-- <h1 class="display-4">Hello, world!</h1> -->
+            <p class="lead" id="questionPrompt" class="question-prompt"> </p>
+            <hr class="my-4">
+           
+            <div id= "quizBox" class="box">
+                <br>
+                    <div id="questionPrompt" class="question-prompt"></div>
+                
+                    <div>
+                        <button id="choiceA" type="button"  class="button btn btn-info btn-lg btn-block" ></button>
+                    </div> 
+                <br>
+                    <div>
+                        <button id="choiceB" type="button" class="button btn btn-info btn-lg btn-block"></button>
+                    </div> 
+                <br>
+                    <div>
+                        <button id="choiceC" type="button"  class="button btn btn-info btn-lg btn-block"></button>
+                    </div>
+                <br>
+                    <div>
+                        <button id="choiceD" type="button"  class="buttonbtn btn-info btn-lg btn-block"></button>
+                    </div>
+                <br> 
+                  <h3 id="answ"></h3>
+
+                  <a id="startButton" class="btn btn-primary btn-lg" href="#" role="button">Start!</a>
+                    <!-- Content here -->
+                </div>
+                </div>    
+                </div>
+            <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+            
+          </div>
 
       <div id="quiz"> </div>  
-      <button id="startButton" type="button" class="btn btn-primary btn-lg"> START!</button>
-
-      <div id= "quizBox" class="box">
-
-        <div id="questionPrompt" class="question-prompt"></div>
     
-        <div>
-            <button id="choiceA" type="button"  class="button" ></button>
-        </div> 
-    
-        <div>
-            <button id="choiceB" type="button" class="button"></button>
-        </div> 
-    
-        <div>
-            <button id="choiceC" type="button"  class="button"></button>
-        </div>
-
-        <div>
-            <button id="choiceD" type="button"  class="button"></button>
-        </div>
-
-      <h3 id="answ"></h3>
-        <!-- Content here -->
-    </div>
-   
 
     <!-- Optional JavaScript -->
     <script src="script.js"></script>

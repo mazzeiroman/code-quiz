@@ -97,7 +97,7 @@ function endGame(){
         correctA: correct
     };
     var usersArray =  JSON.parse(localStorage.getItem('usersInfo')) || [];
-    
+    console.log(usersArray);
     usersArray.push(usersInfo);
     localStorage.setItem('usersInfo', JSON.stringify(usersArray));
     

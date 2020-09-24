@@ -23,7 +23,7 @@ README.md
 ## Link to the deployed website
  https://mazzeiroman.github.io/code-quiz/
 
-![](images/jsquiz.jpg)
+![](images/jsquiz.jpgg)
 
 ## Credits
 

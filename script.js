@@ -17,6 +17,8 @@ var buttons = document.querySelectorAll('.button');
 var userdisplay = document.getElementById('userdisplay');
 var downloadTimer;
 var timeleft = 60;
+
+userdisplay.style.display ="none";
 //starts clock countdown
  var startButton = document.querySelector('#startButton');
 
@@ -79,7 +81,10 @@ function endGame(){
     choiceB.style.display = "none";
     choiceC.style.display = "none";
     choiceD.style.display = "none";
+    userdisplay.style.display ="block";
+   
     
+
     if (qp ="You have finished the Quiz!") {
      var initials =   prompt("What are your initials?");
      console.log(initials);
@@ -97,6 +102,7 @@ function endGame(){
         correctA: correct
     };
     var usersArray =  JSON.parse(localStorage.getItem('usersInfo')) || [];
+
     console.log(usersArray);
     usersArray.push(usersInfo);
     localStorage.setItem('usersInfo', JSON.stringify(usersArray));

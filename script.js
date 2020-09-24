@@ -98,6 +98,9 @@ var questions = [
 // renderQuestions();
 
 // console.log(questions);
+function endGame(){
+    buttons.style.display = "none";
+}
 
 function renderQuestions() {
     
@@ -124,37 +127,43 @@ function renderQuestions() {
          if (itemContent=== answerContent) {
              correct+=1;
              // WORK ON PROMPTS FOR RIGHT 
-            //  var timel = 2;
-            //  var downloadT = setInterval(function(){
-            //     timel--;
-            //     answ.textContent = "YOU ARE RIGHT!", timel;
-            //     if(timel <= 0)
-            //         clearInterval(downloadT, answ.textContent="");
-            //     },1000);
+             var timel1 = 2;
+             var downloadT1 = setInterval(function(){
+                timel1--;
+                answ.textContent = "YOU ARE RIGHT!", timel1;
+                if(timel1 <= 0)
+                    clearInterval(downloadT1, answ.textContent="");
+                },1000);
 
 
             //  answ.textContent = "YOU ARE RIGHT!";
          }
          else {timeleft -= 10;
             document.getElementById("time").textContent = timeleft + " sec";};
-             // WORK ON PROMPTS FOR WRONG 
-            // var timel = 2;
-            // var downloadT = setInterval(function(){
-            //    timel--;
-            //    answ.textContent = "Wrong!", timel;
-            //    if(timel <= 0)
-            //        clearInterval(downloadT, answ.textContent="");
-            //    },1000);
+             //WORK ON PROMPTS FOR WRONG 
+            var timel = 2;
+            var downloadT = setInterval(function(){
+               timel--;
+               answ.textContent = "Wrong!", timel;
+               if(timel <= 0)
+                   clearInterval(downloadT, answ.textContent="");
+               },1000);
 
 
             // answ.textContent = "Wrong!";
          console.log(correct);
        currentQuestionNum +=1;
+       if (currentQuestionNum < questions.length) {
        var qstp= questionPrompt.innerHTML = questions[currentQuestionNum].question;
        var chA= choiceA.innerHTML =questions[currentQuestionNum].choices[0];
        var chB= choiceB.innerHTML =questions[currentQuestionNum].choices[1];
        var chC= choiceC.innerHTML =questions[currentQuestionNum].choices[2];
        var chD= choiceD.innerHTML =questions[currentQuestionNum].choices[3];
+       }
+       else {
+           endGame()
+       }
+       
        
     });
     // });
@@ -183,3 +192,7 @@ function renderQuestions() {
 
    
         }); 
+    if (currentQuestionNum === 4) {
+        var nameOfUser = prompt('Name');
+        console.log(nameOfUser)
+    };

@@ -15,14 +15,14 @@ var choiceC = document.getElementById('choiceC');
 var choiceD = document.getElementById('choiceD');
 var buttons = document.querySelectorAll('.button');
 var userdisplay = document.getElementById('userdisplay');
-
+var downloadTimer;
 var timeleft = 60;
 //starts clock countdown
  var startButton = document.querySelector('#startButton');
 
  startButton.addEventListener('click',function()
      {
-    var downloadTimer = setInterval(function(){
+     downloadTimer = setInterval(function(){
     timeleft--;
     document.getElementById("time").textContent = timeleft;
     if(timeleft <= 0) {
@@ -90,16 +90,18 @@ function endGame(){
      }
   }
   
-    // userdisplay.textContent = 
     var usersInfo = 
     {
         name: initials,
         time : finaltime,
         correctA: correct
     };
-
-console.log(usersInfo);
-localStorage.setItem('usersInfo', JSON.stringify(usersInfo));
+    var usersArray =  JSON.parse(localStorage.getItem('usersInfo')) || [];
+    
+    usersArray.push(usersInfo);
+    localStorage.setItem('usersInfo', JSON.stringify(usersArray));
+    
+    clearInterval(downloadTimer)
 }
 
 function renderQuestions() {
